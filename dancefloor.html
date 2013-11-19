@@ -6,12 +6,16 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/blinkySquareDancer.js"></script>
+    <script src="src/blinkyTriangularDancer.js"></script>
   </head>
   <body>
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkySquareDancer" data-class-name="square">add a blinky square dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer" data-class-name="circle">add a blinky circle dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyTriangularDancer" data-class-name="triangle">add a blinky triangular dancer</a>
     </div>
 
     <script>
@@ -33,12 +37,13 @@
            */
 
           var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
+          var className = $(this).data("class-name");
           var top = $("body").height() * Math.random();
           var left = $("body").width() * Math.random();
           var timeBetweenSteps = Math.random() * 1000;
 
           // get the maker function for the kind of dancer we're supposed to make
-          var dancer = new window[dancerMakerFunctionName](top, left, timeBetweenSteps);
+          var dancer = new window[dancerMakerFunctionName](top, left, timeBetweenSteps, className);
 
           // make a dancer with a random position
           // var dancer = dancerMakerFunction(

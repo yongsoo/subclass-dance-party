@@ -1,6 +1,5 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps){
-
-  Dancer.call(this, top, left, timeBetweenSteps);
+var BlinkyDancer = function(top, left, timeBetweenSteps, className){  
+  Dancer.call(this, top, left, timeBetweenSteps, className);
 
   this.oldStep = this.step;
   this.step = function () {
