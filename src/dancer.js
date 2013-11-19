@@ -35,3 +35,11 @@ Dancer.prototype.randomColor = function () {
 Dancer.prototype.randomSize = function() {
   return Math.floor(Math.random() * 100);
 };
+
+Dancer.prototype.randomHeight = function() {
+  return Math.floor(Math.random() * $(window).height());
+};
+
+Dancer.prototype.randomWidth = function() {
+  return Math.floor(Math.random() * $(window).width());
+};

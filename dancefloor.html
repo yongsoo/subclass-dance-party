@@ -23,6 +23,8 @@
       $(document).ready(function(){
         window.dancers = [];
 
+
+
         $(".lineUp").on("click", function() {
           for(var i = 0; i < dancers.length; i++) {
             dancers[i].setPosition(dancers[i].top, "50px");
@@ -40,6 +42,15 @@
           window.dancers.push(dancer);
 
           $('body').append(dancer.$node);
+        });
+
+        $(document).on("mouseover", ".dancer", function() {
+          console.log();
+          console.log(Dancer.prototype.randomWidth());
+          $(this).animate({
+            top: Dancer.prototype.randomHeight() + 'px',
+            left: Dancer.prototype.randomWidth() + 'px'
+          })
         });
       });
     </script>
