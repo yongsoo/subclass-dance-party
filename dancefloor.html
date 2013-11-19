@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
-    <script src="src/blinkyDancer.js"></script>
+    <script src="src/blinkyCircleDancer.js"></script>
     <script src="src/blinkySquareDancer.js"></script>
     <script src="src/blinkyTriangularDancer.js"></script>
   </head>
@@ -14,7 +14,7 @@
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkySquareDancer" data-class-name="square">add a blinky square dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer" data-class-name="circle">add a blinky circle dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyCircleDancer" data-class-name="circle">add a blinky circle dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyTriangularDancer" data-class-name="triangle">add a blinky triangular dancer</a>
     </div>
 
@@ -44,13 +44,6 @@
 
           // get the maker function for the kind of dancer we're supposed to make
           var dancer = new window[dancerMakerFunctionName](top, left, timeBetweenSteps, className);
-
-          // make a dancer with a random position
-          // var dancer = dancerMakerFunction(
-          //   $("body").height() * Math.random(),
-          //   $("body").width() * Math.random(),
-          //   Math.random() * 1000
-          // );
 
           $('body').append(dancer.$node);
         });
