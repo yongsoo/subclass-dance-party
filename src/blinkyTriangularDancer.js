@@ -1,6 +1,8 @@
 var BlinkyTriangularDancer = function(top, left, timeBetweenSteps, className){
   this.oldStep = Dancer.prototype.step;
   Dancer.call(this, top, left, timeBetweenSteps, className);
+  this.top = top;
+  this.left = left;
 };
 
 BlinkyTriangularDancer.prototype = Object.create(Dancer.prototype);

@@ -13,7 +13,7 @@ describe("blinkyDancer", function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it("should have a step function that makes its node blink", function() {
+  xit("should have a step function that makes its node blink", function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;

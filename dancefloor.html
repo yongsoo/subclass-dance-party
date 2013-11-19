@@ -13,6 +13,7 @@
 
     <div class="topbar">
       <span class="title">object dance party</span>
+      <a href="#" class="lineUp">line up!</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkySquareDancer" data-class-name="square">add a blinky square dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyCircleDancer" data-class-name="circle">add a blinky circle dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyTriangularDancer" data-class-name="triangle">add a blinky triangular dancer</a>
@@ -22,28 +23,21 @@
       $(document).ready(function(){
         window.dancers = [];
 
+        $(".lineUp").on("click", function() {
+          for(var i = 0; i < dancers.length; i++) {
+            dancers[i].setPosition(dancers[i].top, "50px");
+          }
+        });
+
         $(".addDancerButton").on("click", function(event){
-          /* This function sets up the click handlers for the create-dancer
-           * buttons on index.html. You should not need to alter it.
-           * As long as the "data-dancer-maker-function-name" attribute of a
-           * class="addDancerButton" DOM node matches one of the names of the
-           * maker functions available in the global scope, clicking that node
-           * will call the function to make the dancer. */
-
-          /* dancerMakerFunctionName is a string which must match
-           * one of the dancer maker functions available in global scope.
-           * A new object of the given type will be created and added
-           * to the stage.
-           */
-
           var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
           var className = $(this).data("class-name");
           var top = $("body").height() * Math.random();
           var left = $("body").width() * Math.random();
           var timeBetweenSteps = Math.random() * 1000;
 
-          // get the maker function for the kind of dancer we're supposed to make
           var dancer = new window[dancerMakerFunctionName](top, left, timeBetweenSteps, className);
+          window.dancers.push(dancer);
 
           $('body').append(dancer.$node);
         });
