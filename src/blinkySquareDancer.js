@@ -7,4 +7,8 @@ BlinkySquareDancer.prototype = Object.create(Dancer.prototype);
 BlinkySquareDancer.prototype.constructor = BlinkySquareDancer;
 BlinkySquareDancer.prototype.step = function () {
   this.oldStep();
+  this.$node.css({
+    'background-color': 'rgb(' + this.randomColor() + ', ' + this.randomColor() + ', ' + this.randomColor() + ')'
+  });
+  this.$node.toggle();
 };

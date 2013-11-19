@@ -22,7 +22,16 @@ Dancer.prototype.step = function () {
   setTimeout(function() {
     that.step();
   }, that.timeBetweenSteps);
+};
 
-  this.$node.toggle();
+Dancer.prototype.randomAngle = function () {
+  return Math.floor(Math.random() * 360);
+};
 
+Dancer.prototype.randomColor = function () {
+  return Math.floor(Math.random() * 255);
+};
+
+Dancer.prototype.randomSize = function() {
+  return Math.floor(Math.random() * 100);
 };
