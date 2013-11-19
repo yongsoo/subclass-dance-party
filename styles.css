@@ -25,7 +25,6 @@ body, a:link, a:visited, a:active{
   background: red;
   width: 20px;
   height: 20px;
-  /*border:10px solid red;*/
   position:absolute;
   -webkit-transition: all .2s linear;
 }

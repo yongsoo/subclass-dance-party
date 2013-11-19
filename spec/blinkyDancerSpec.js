@@ -1,34 +1,34 @@
-describe("blinkyDancer", function() {
+describe("dancer", function() {
 
-  var blinkyDancer;
+  var dancer;
   var timeBetweenSteps = 100;
   var clock;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = new BlinkyCircleDancer(10, 20, timeBetweenSteps, "circle");
+    dancer = new CircleDancer(10, 20, timeBetweenSteps, "circle");
   });
 
   it("should have a jQuery $node object", function(){
-    expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
+    expect(dancer.$node).to.be.an.instanceof(jQuery);
   });
 
   xit("should have a step function that makes its node blink", function() {
-    sinon.spy(blinkyDancer.$node, 'toggle');
-    blinkyDancer.step();
-    expect(blinkyDancer.$node.toggle.called).to.be.true;
+    sinon.spy(dancer.$node, 'toggle');
+    dancer.step();
+    expect(dancer.$node.toggle.called).to.be.true;
   });
 
   describe("dance", function(){
     it("should call step at least once per second", function(){
-      sinon.spy(blinkyDancer, "step");
-      expect(blinkyDancer.step.callCount).to.be.equal(0);
+      sinon.spy(dancer, "step");
+      expect(dancer.step.callCount).to.be.equal(0);
       clock.tick(timeBetweenSteps);
 
-      expect(blinkyDancer.step.callCount).to.be.equal(1);
+      expect(dancer.step.callCount).to.be.equal(1);
 
       clock.tick(timeBetweenSteps);
-      expect(blinkyDancer.step.callCount).to.be.equal(2);
+      expect(dancer.step.callCount).to.be.equal(2);
     });
   });
 });
