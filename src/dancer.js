@@ -1,7 +1,8 @@
 var Dancer = function(top, left, timeBetweenSteps, className){
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $("<span class='dancer " + className + "'" + "></span>");
-  
+  this.step();
+
   this.setPosition = function (top, left) {
     var styleSettings = {
       top: top,
@@ -21,4 +22,7 @@ Dancer.prototype.step = function () {
   setTimeout(function() {
     that.step();
   }, that.timeBetweenSteps);
+
+  this.$node.toggle();
+
 };
